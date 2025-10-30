@@ -2,7 +2,7 @@
 
 ## What Changed?
 
-**"Gating" → "Gating"** (Computational Cognition Framework)
+**"Gatogi" → "Gating"** (Computational Cognition Framework)
 
 The term "gatogi" was a **mistranscription**. The correct term is **"gating"**, referring to Nnamdi Michael Okpala's **Computational Cognition Gating Framework**.
 
@@ -14,10 +14,10 @@ The term "gatogi" was a **mistranscription**. The correct term is **"gating"**, 
 
 ```bash
 # Make script executable
-chmod +x migrate_gating_to_gating.sh
+chmod +x migrate_gatogi_to_gating.sh
 
 # Run correction (creates backup automatically)
-./migrate_gating_to_gating.sh
+./migrate_gatogi_to_gating.sh
 ```
 
 ### Step 2: Verify Changes
@@ -50,8 +50,8 @@ The term 'gatogi' was a mistranscription. Correct term is 'gating'
 referring to OBINexus Computational Cognition Gating Framework.
 
 Changes:
-- Renamed files: gating_* → gating_*
-- Updated types: GatingContext → GatingContext  
+- Renamed files: gatogi_* → gating_*
+- Updated types: GatogiContext → GatingContext  
 - Corrected all function names and documentation
 
 Ref: OBINexus Gating Methodology (Nnamdi Okpala, 2024)
@@ -87,7 +87,7 @@ YouTube: https://www.youtube.com/watch?v=X4tyx8Ylw80"
    - ODTS + Agha-Dozie integration guide
    - Migration instructions
 
-5. **migrate_gating_to_gating.sh**
+5. **migrate_gatogi_to_gating.sh**
    - Automated correction script
    - Creates backup before changes
    - Verifies corrections
@@ -145,12 +145,12 @@ GatingResult result = gating_analyze_patterns(&ctx);
 
 ### Issue 1: Build Fails After Migration
 
-**Symptom**: `undefined reference to 'gating_analyze_polygons'`
+**Symptom**: `undefined reference to 'gatogi_analyze_polygons'`
 
 **Solution**: Update your code to use new function names:
 ```c
 // Old (incorrect)
-gating_analyze_polygons(&ctx);
+gatogi_analyze_polygons(&ctx);
 
 // New (correct)  
 gating_analyze_patterns(&ctx);
@@ -158,12 +158,12 @@ gating_analyze_patterns(&ctx);
 
 ### Issue 2: Header Not Found
 
-**Symptom**: `fatal error: gating_integration.h: No such file`
+**Symptom**: `fatal error: gatogi_integration.h: No such file`
 
 **Solution**: The header is now `odts_integration.h`:
 ```c
 // Old (incorrect)
-#include "gating_integration.h"
+#include "gatogi_integration.h"
 
 // New (correct)
 #include "odts_integration.h"
@@ -171,12 +171,12 @@ gating_analyze_patterns(&ctx);
 
 ### Issue 3: Enum Values Not Recognized
 
-**Symptom**: `error: 'GATING_VALID' undeclared`
+**Symptom**: `error: 'GATOGI_VALID' undeclared`
 
 **Solution**: Update enum names:
 ```c
 // Old (incorrect)
-if (result == GATING_VALID) { ... }
+if (result == GATOGI_VALID) { ... }
 
 // New (correct)
 if (result == GATING_VALID) { ... }
@@ -216,7 +216,7 @@ if (result == GATING_VALID) { ... }
 
 After running the migration script, verify:
 
-- [ ] All files renamed (`gating_*` → `gating_*`)
+- [ ] All files renamed (`gatogi_*` → `gating_*`)
 - [ ] No remaining "gatogi" references in code
 - [ ] Build succeeds without errors
 - [ ] Tests pass (if applicable)
@@ -237,7 +237,7 @@ ls -d backup_*
 cp -r backup_YYYYMMDD_HHMMSS/* .
 
 # Or restore specific files
-cp backup_YYYYMMDD_HHMMSS/gating_algorithm.c .
+cp backup_YYYYMMDD_HHMMSS/gatogi_algorithm.c .
 ```
 
 ---
@@ -250,11 +250,11 @@ If you have a large codebase, migrate in stages:
 
 ```bash
 # Stage 1: Rename files only
-git mv gating_algorithm.c gating_algorithm.c
+git mv gatogi_algorithm.c gating_algorithm.c
 git commit -m "refactor: rename gatogi files to gating"
 
 # Stage 2: Update content
-./migrate_gating_to_gating.sh
+./migrate_gatogi_to_gating.sh
 git commit -m "fix: correct gatogi terminology to gating"
 ```
 
@@ -268,7 +268,7 @@ Add a pre-commit hook to prevent "gatogi" from re-entering codebase:
 
 if git diff --cached --name-only | xargs grep -l "gatogi" 2>/dev/null; then
     echo "ERROR: Found 'gatogi' in staged files. Use 'gating' instead."
-    echo "Run: ./migrate_gating_to_gating.sh"
+    echo "Run: ./migrate_gatogi_to_gating.sh"
     exit 1
 fi
 ```
@@ -348,4 +348,4 @@ Reference: https://www.youtube.com/watch?v=X4tyx8Ylw80
 **Last Updated**: October 30, 2025  
 **Status**: Ready for Implementation
 
-**Next Action**: Run `./migrate_gating_to_gating.sh` 🚀
+**Next Action**: Run `./migrate_gatogi_to_gating.sh` 🚀

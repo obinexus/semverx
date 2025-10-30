@@ -53,7 +53,7 @@ typedef struct {
 
 /**
  * Gating Context: Multi-pattern analysis state
- * Replaces GatingContext with proper terminology
+ * Replaces GatogiContext with proper terminology
  */
 typedef struct {
     Pattern* patterns;                  // Array of patterns to analyze
@@ -68,7 +68,7 @@ typedef struct {
 
 /**
  * Gating Results: Overall analysis outcome
- * Replaces GatingResult with proper terminology
+ * Replaces GatogiResult with proper terminology
  */
 typedef enum {
     GATING_VALID,                   // All gates passed, patterns coherent
