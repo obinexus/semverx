@@ -1,1 +1,0 @@
-# Foreign Functor Function Interface
